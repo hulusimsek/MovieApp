@@ -1,6 +1,8 @@
 package com.hulusimsek.a8_movieapp.data.remote.dto
 
-data class MoviesDetailDto(
+import com.hulusimsek.a8_movieapp.domain.model.MovieDetail
+
+data class MovieDetailDto(
     val Actors: String,
     val Awards: String,
     val BoxOffice: String,
@@ -27,3 +29,11 @@ data class MoviesDetailDto(
     val imdbRating: String,
     val imdbVotes: String
 )
+
+fun MovieDetailDto.toMovieDetail(): MovieDetail {
+    return MovieDetail(
+        Actors, Awards, Country, Director, Genre,
+        Language, Poster, Rated, Released, Title,
+        Type, Year, imdbRating
+    )
+}
